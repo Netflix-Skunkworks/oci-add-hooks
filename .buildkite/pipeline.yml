@@ -1,9 +1,8 @@
 steps:
   - command: ./.buildkite/build.sh
     artifact_paths: "*.log;dist/*.deb;dist/*.tar.gz"
-    build:
-      env:
-        BUILDKITE_CLEAN_CHECKOUT: "true"
+    env:
+      BUILDKITE_CLEAN_CHECKOUT: "true"
   - wait
   - trigger: titus-upload-debs
     async: false
