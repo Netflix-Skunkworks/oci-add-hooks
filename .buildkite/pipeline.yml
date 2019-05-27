@@ -1,0 +1,14 @@
+steps:
+  - command: make release
+    artifact_paths: "dist/*.deb;dist/*.tar.gz;dist/config.yaml;dist/checksums.txt"
+  - wait
+  - trigger: titus-upload-debs
+    async: false
+    branches: "master"
+    build:
+      env:
+        CALLER_BUILD_ID: "${BUILDKITE_BUILD_ID}"
+        CALLER_JOB_ID: "${BUILDKITE_JOB_ID}"
+        CALLER_UPLOAD_DEB: "dist/oci-add-hooks*.deb"
+        CALLER_PACKAGE_NAME: "oci-add-hooks"
+        BUILDKITE_CLEAN_CHECKOUT: "true"
