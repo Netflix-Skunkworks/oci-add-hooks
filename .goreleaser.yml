@@ -1,0 +1,25 @@
+project_name: oci-add-hooks
+builds:
+- env:
+  - CGO_ENABLED=0
+  goos:
+  - linux
+  goarch:
+  - amd64
+archives:
+- replacements:
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+nfpm:
+  formats:
+  - deb
+  bindir: /usr/bin
+  maintainer: Titus Developers <titus-developers@netflix.com>
