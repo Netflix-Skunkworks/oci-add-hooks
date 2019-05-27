@@ -1,6 +1,6 @@
 steps:
-  - command: make release
-    artifact_paths: "dist/*.deb;dist/*.tar.gz;dist/config.yaml;dist/checksums.txt"
+  - command: ./.buildkite/build.sh
+    artifact_paths: "*.log;dist/*.deb;dist/*.tar.gz;dist/config.yaml;dist/checksums.txt"
   - wait
   - trigger: titus-upload-debs
     async: false
