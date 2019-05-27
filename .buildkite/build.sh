@@ -18,5 +18,6 @@ export PATH="${GO_INSTALL_DIR}/go/bin:${GOPATH}/bin:${PATH}"
 
 log "Building..."
 
+make clean
 make release
 make | tee build.log

@@ -1,4 +1,6 @@
 project_name: oci-add-hooks
+release:
+  disable: true
 builds:
 - env:
   - CGO_ENABLED=0
