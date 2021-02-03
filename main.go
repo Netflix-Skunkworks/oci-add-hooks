@@ -70,6 +70,10 @@ func processBundle(hookPath, runcPath string, runcArgs []string) int {
 			if err != nil {
 				return exitCodeFailure
 			}
+			err = titusHook(bundlePath)
+			if err != nil {
+				return exitCodeFailure
+			}
 			break
 		}
 	}
